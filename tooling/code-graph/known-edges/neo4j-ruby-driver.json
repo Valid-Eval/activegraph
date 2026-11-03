@@ -1,0 +1,18 @@
+{
+  "graph_of": "lib/ at 9198622, Graphify 0.9.97",
+  "must_have": [
+    {"relation": "mixes_in", "source": "Neo4j::Driver::Session", "target": "Neo4j::Driver::Internal::DurationNormalizer", "note": "mri session.rb:12"},
+    {"relation": "calls", "source": ".commit()", "source_file": "bolt/message.rb", "target": "Neo4j::Driver::PackStream::Structure", "note": "bolt/message.rb:49"},
+    {"relation": "calls", "source": ".wrap_with_tls()", "target": ".verify_hostname?()", "note": "bolt/connection.rb:1029"},
+    {"relation": "calls", "source": ".pool()", "target": "Neo4j::Driver::Bolt::Connection", "note": "direct/connection_provider.rb:245"},
+    {"relation": "calls", "source": ".open_connection()", "target": "Neo4j::Driver::Bolt::Connection", "note": "routing/load_balancer.rb:655"},
+    {"relation": "calls", "source": ".run()", "source_file": "mri/neo4j/driver/session.rb", "target": ".timeout_to_milliseconds()", "note": "INFERRED, across a mixin"}
+  ],
+  "known_missing": [
+    {"relation": "calls", "source": ".run()", "source_file": "mri/neo4j/driver/transaction.rb", "target": ".run()", "target_file": "unmanaged_transaction.rb", "note": "transaction.rb:21, @transaction.run"}
+  ],
+  "known_wrong": [
+    {"relation": "calls", "source": ".run()", "source_file": "mri/neo4j/driver/transaction.rb", "target": ".run()", "target_file": "mri/neo4j/driver/transaction.rb", "note": "self-loop for the same line"},
+    {"relation": "calls", "source": ".to_s()", "source_file": "types/duration.rb", "target": ".format()", "target_file": "jruby/", "note": "duration.rb:52; really Kernel#format"}
+  ]
+}

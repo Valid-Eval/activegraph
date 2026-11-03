@@ -1,0 +1,24 @@
+{
+  "graph_of": "a git-init copy of tooling/code-graph/fixture, Graphify 0.9.97",
+  "must_have": [
+    {"relation": "mixes_in", "source": "Stage", "target": "Trackable", "note": "include of a concern in another file"},
+    {"relation": "inherits", "source": "Stage", "target": "BaseRecord", "note": "top-level superclass in another file"},
+    {"relation": "calls", "source": ".summary()", "target": ".stamp_change()", "note": "implicit call into a concern"},
+    {"relation": "calls", "source": ".summary()", "target": ".persisted_marker()", "note": "inherited method"},
+    {"relation": "calls", "source": ".search_recent()", "target": "tracked_fields()", "note": "method in class_methods do; bare label"},
+    {"relation": "calls", "source": ".add_tag()", "target": ".normalize_tag()", "note": "implicit call within a reopened module"},
+    {"relation": "calls", "source": ".perform_kind()", "target": "RefreshJob", "note": "perform_async reaches the job class, not perform"},
+    {"relation": "calls", "source": ".perform()", "target": "Checklist", "note": "Checklist.new.item_total reaches the class, not the method"},
+    {"relation": "calls", "source": ".build()", "target": "ReportLoader::LazyPart", "note": "autoloaded constant"}
+  ],
+  "known_missing": [
+    {"relation": "mixes_in", "source": "Stage", "target": "Taggable", "note": "module reopened across files"},
+    {"relation": "calls", "source": ".show()", "target": ".summary()", "note": "@stage.summary, explicit receiver across files"},
+    {"relation": "calls", "source": ".label_for_report()", "target": ".title()", "note": "delegate"},
+    {"relation": "calls", "source": ".summary()", "target": ".item_total()", "note": "map(&:item_total)"},
+    {"relation": "calls", "source": ".start()", "target": ".perform_kind()", "note": "send(:perform_kind)"}
+  ],
+  "known_wrong": [
+    {"relation": "calls", "source": ".show()", "target": ".render()", "target_file": "report_format.rb", "note": "render json: in a controller bound to ReportFormat.render"}
+  ]
+}
